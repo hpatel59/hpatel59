@@ -1,0 +1,4 @@
+__pycache__/
+# Textbook-derived content (copyrighted) is kept out of the repo
+data/unit*.py
+out/
