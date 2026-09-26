@@ -1,0 +1,5 @@
+__pycache__/
+# Textbook-derived content (copyrighted) is kept out of the repo
+data/s*.py
+data/code5.py
+out/
