@@ -89,6 +89,8 @@ async function route() {
 // ------------------------------------------------------------------ login
 function loginView() {
   topbar();
+  // a link from Google Classroom (e.g. #/c/61) should land on that page after signing in
+  const back = !location.hash || location.hash.startsWith("#/login") ? "#/" : location.hash;
   app.innerHTML = `<div class="login stack">
     <div class="stack" style="gap:8px"><span class="eyebrow">OCR A Level Computer Science</span>
     <h1>Sign in with your avatar</h1><p class="muted">Use the avatar name and PIN on the card your teacher gave you.</p></div>
@@ -104,7 +106,7 @@ function loginView() {
     const b = $("#go"); busy(b, true, "Signing in…");
     try {
       await api("/api/login", { json: { avatar: $("#avatar").value, pin: $("#pin").value } });
-      await refreshMe(); go("#/");
+      await refreshMe(); go(back);
     } catch (err) { $("#err").hidden = false; $("#err").textContent = err.message; }
     busy(b, false);
   };
