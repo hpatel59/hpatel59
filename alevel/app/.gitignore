@@ -1,0 +1,5 @@
+# textbook-derived content (copyright) and anything identifying students stays out of git
+content/
+instance/
+avatars.csv
+*.zip
